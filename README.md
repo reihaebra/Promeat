@@ -198,9 +198,8 @@ previous approved work order removed from the menu were deleted, and no byte-dup
 
 ## Git workflow
 
-The repository is currently **not** initialised as a Git repository (`.git/` does not exist), by
-design — see the *Known limitations* section. `.gitignore` and `.editorconfig` are prepared for
-initialisation:
+The project is a Git repository on the `main` branch. `.gitignore` and `.editorconfig` define what is
+tracked and how files are normalised:
 
 - `.gitignore` excludes `node_modules/`, `dist/`, `.vite/`, local env files (keeping `.env.example`
   trackable), editor directories, OS artifacts, logs, `.backup-phaseK/` (a local, untracked copy of
@@ -209,8 +208,12 @@ initialisation:
   images, logos) and `package-lock.json` are **not** ignored.
 - `.editorconfig` enforces UTF-8, LF, final newline, trimmed trailing whitespace and 2-space
   indentation for JS/CSS/HTML; Markdown keeps trailing whitespace so hard line breaks survive.
+- `.gitattributes` normalises text files to LF in the repository and on checkout, overriding a
+  machine-level `core.autocrlf=true`, and marks the font/image files as binary.
 
-Suggested first commit message after `git init`: `chore: prepare ProMeat for repository release`.
+Daily workflow: branch off `main`, keep changes small, run `npm run build` before pushing, and use
+Conventional Commits (`feat:`, `fix:`, `refactor:`, `style:`, `docs:`, `chore:`). Never commit `dist/`
+or `node_modules/`.
 
 ## Known limitations
 
