@@ -1,0 +1,32 @@
+# Dependencies and build output
+node_modules/
+dist/
+
+# Vite cache
+.vite/
+
+# Local-only environment overrides (the app needs none — see README)
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor and OS artifacts
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local pre-refactor snapshot (uncompressed copy of src/ and public/ from before
+# the repository-preparation pass). Delete it once the refactor is committed.
+.backup-phaseK/
+
+# Unreferenced image-generation scratch pool (3 MB, zero references from src/,
+# public/css/ or index.html). Kept locally, not published.
+vibe_images/
